@@ -357,8 +357,9 @@ func (dms *DiskMetricStore) checkWriteRequest(wr WriteRequest) bool {
 	}()
 
 	if timestampsPresent(wr.MetricFamilies) {
-		err = errTimestamp
-		return false
+		// err = errTimestamp
+		// return false
+		fmt.Println("timestampsPresent")
 	}
 	for _, mf := range wr.MetricFamilies {
 		sanitizeLabels(mf, wr.Labels)
